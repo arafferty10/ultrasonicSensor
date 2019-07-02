@@ -1,6 +1,7 @@
 #Libraries
 import RPi.GPIO as GPIO
 import time
+import anki_vector
 
 #GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
@@ -13,7 +14,7 @@ GPIO_ECHO = 24
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
 
-print("\nBeginning Measurements...\n")
+print("\nBeginning Force Control...\n")
 
 def distance():
     # set Trigger to HIGH
@@ -47,7 +48,7 @@ if __name__ == '__main__':
         while True:
             dist = distance()
             print ("Measured Distance = %.1f cm" % dist)
-            time.sleep(0.5)
+            time.sleep(1)
 
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:
